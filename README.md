@@ -1,3 +1,3 @@
 # Netflix-Clone
 
-### This application is built with MERN stack.
+### This application is built using MERN stack.
