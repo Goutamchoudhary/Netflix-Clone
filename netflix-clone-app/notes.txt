@@ -1,0 +1,25 @@
+-> Got to html-css-js.com to generate codes according to requirement.
+
+1. npx create-react-app app-react
+
+2. yarn init
+
+3. yarn add @material-ui/icons @material-ui/core react-scripts
+
+4. yarn install (to install dependencies in the project)
+
+5. yarn add sass
+
+6. yarn start
+
+
+Git commands -> 
+
+1. git add .         
+
+2. git commit -m "commit message"
+
+3. git branch -M main
+
+4. git push -u origin
+
