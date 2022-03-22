@@ -1,7 +1,0 @@
-1. yarn init
-
-2. yarn install
-
-3. yarn add @material-ui/icons @material-ui/core
-
-4. yarn add sass
