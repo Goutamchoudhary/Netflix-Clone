@@ -1,0 +1,92 @@
+
+// https://cdn.hipwallpaper.com/m/98/21/dUyCkp.jpg
+
+.login {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom right, rgb(0,0,0,0.6), rgb(0,0,0,0.5)), url("https://img.helpnetsecurity.com/wp-content/uploads/2020/03/23143409/netflix-collection.jpg");
+    background-size: cover;
+    position: relative;
+
+    .top {
+        z-index: 1;
+        .wrapper {
+            padding: 20px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .logo {
+                height: 40px;
+            }
+        }
+    }
+
+    .container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        top: 0;
+        left: 0;
+        position: absolute;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        z-index: 1;
+
+        form {
+            width: 300px;
+            height: 300px;
+            padding: 30px;
+            border-radius: 5px;
+            background-color: var(--main-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            opacity: 0.9;
+
+            input {
+                height: 40px;
+                border-radius: 5px;
+                background-color: rgba(169, 169, 169, 0.397);
+                color: white;
+                font-size: 16px;
+                padding-left: 10px;
+
+                &::placeholder {
+                    color: lightgray;
+                }
+            }
+            p{
+                display: flex;
+                justify-content: end;
+                margin-bottom: 5px;
+            }
+            button {
+                height: 40px;
+                border-radius: 5px;
+                background-color: red;
+                color: white;
+                font-size: 18px;
+                cursor: pointer;
+                font-weight: 400;
+                margin-top: 10px;
+
+                &:hover {
+                    background-color: rgb(190, 46, 46);
+                    ;
+                }
+            }
+
+            span {
+                color: lightgray;
+
+                b {
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
