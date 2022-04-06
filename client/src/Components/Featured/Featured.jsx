@@ -1,14 +1,34 @@
 import { InfoOutlined, PlayArrow } from '@material-ui/icons'
+import axios from 'axios';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import './Featured.scss'
 
 const Featured = (props) => {
+    const [content, setContent] = useState({});
+    const type = props.type;
+    useEffect(() => {
+        const getRandomContent = async () => {
+            let token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDZlYjM0YWRjNWI0ZTI0ZmVmMjc5ZSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0ODkwNTA3MiwiZXhwIjoxNjQ5MzM3MDcyfQ._4X7Pz20oOn882rNDVqXJXRxrWusA3FfmrrDJ31TMf8";
+            try{
+                const res = await axios.get(`http://localhost:9000/api/movie/random?type=${type}`, { headers:{ token: token } })
+                console.log(res.data);
+                setContent(res.data);
+            }catch(err){
+                console.log(err);
+            }
+        };
+        getRandomContent();
+    }, [type])
+
+    //console.log(content);
     return (
         <div className="featured">
-
             {props.type && (
                 <div className="category">
                     <span>{(props.type === "movie") ? "Movies" : "Series"}</span>
-                    <select name="genre" id="genre">
+                    <select name="genre" id="genre" 
+                                    onChange={e=>props.setGenre(e.target.value)}>
                         <option>Genre</option>
                         <option value="adventure">Adventure</option>
                         <option value="comedy">Comedy</option>
@@ -27,16 +47,14 @@ const Featured = (props) => {
                 </div>
             )}
 
-            <img src="https://images.pexels.com/photos/458379/pexels-photo-458379.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
+            <img src={content.img} 
             alt="" />
 
             <div className="info">
-                <img src="https://www.pngitem.com/pimgs/m/676-6760112_matrix-movie-title-png-transparent-png.png" 
+                <img src={content.imgTitle} 
                 alt="" />
                 <span className='desc'>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, officia! 
-                    Optio, maiores pariatur rerum voluptatem esse nam, odit quos dolores 
-                    fuga repellat sunt aut. Aut earum dignissimos tempore omnis debitis.
+                    {content.desc}
                 </span>
                 <div className="buttons">
                     <button className='play'>

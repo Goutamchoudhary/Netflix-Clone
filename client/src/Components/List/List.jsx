@@ -24,7 +24,7 @@ const List = (props) => {
 
     return (
         <div className='list'>
-            <span className="listTitle">Continue to watch</span>
+            <span className="listTitle">{props.list.title}</span>
             <div className="wrapper">
                 <ArrowBackIosOutlined 
                 className='sliderArrow left' 
@@ -32,16 +32,12 @@ const List = (props) => {
                 style={{display : !isMoved && "none"}}
                 />
                 <div className="container" ref={listRef}>
-                    <ListItem index={0} img={props.img}/>
-                    <ListItem index={1} img={props.img}/>
-                    <ListItem index={2} img={props.img}/>
-                    <ListItem index={3} img={props.img}/>
-                    <ListItem index={4} img={props.img}/>
-                    <ListItem index={5} img={props.img}/>
-                    <ListItem index={6} img={props.img}/>
-                    <ListItem index={7} img={props.img}/>
-                    <ListItem index={8} img={props.img}/>
-                    <ListItem index={9} img={props.img}/>
+                    {/* <ListItem index={0} img={props.img}/> */}
+
+                    {props.list.content.map((item, index) => (
+                        <ListItem key={index} index={index} item={item} />
+                    ))}
+
                 </div>
                 <ArrowForwardIosOutlined className='sliderArrow right' onClick={() => handleClick("right")}/>
             </div>

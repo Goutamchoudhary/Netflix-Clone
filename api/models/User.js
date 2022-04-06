@@ -16,7 +16,7 @@ const UserSchema = new mongoose.Schema(
     },
     password: {type: String, required: true},
     profilePic: {type: String, default: ""},
-    isAdmin: {type: Boolean, default: false}
+    isAdmin: {type: Boolean, default: false},
 
 }, {timestamps: true}
 );
