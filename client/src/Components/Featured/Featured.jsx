@@ -9,10 +9,10 @@ const Featured = (props) => {
     const type = props.type;
     useEffect(() => {
         const getRandomContent = async () => {
-            let token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDZlYjM0YWRjNWI0ZTI0ZmVmMjc5ZSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0ODkwNTA3MiwiZXhwIjoxNjQ5MzM3MDcyfQ._4X7Pz20oOn882rNDVqXJXRxrWusA3FfmrrDJ31TMf8";
+            let token = "UserToken " + JSON.parse(localStorage.getItem("user")).accessToken;
             try{
-                const res = await axios.get(`http://localhost:9000/api/movie/random?type=${type}`, { headers:{ token: token } })
-                console.log(res.data);
+                const res = await axios.get(`http://localhost:9000/api/movie/random/${type ? "?type="+type: ""}`, { headers:{ token: token } })
+                //console.log(res.data);
                 setContent(res.data);
             }catch(err){
                 console.log(err);
@@ -26,7 +26,7 @@ const Featured = (props) => {
         <div className="featured">
             {props.type && (
                 <div className="category">
-                    <span>{(props.type === "movie") ? "Movies" : "Series"}</span>
+                    <span>{(type === "movie") ? "Movies" : "Series"}</span>
                     <select name="genre" id="genre" 
                                     onChange={e=>props.setGenre(e.target.value)}>
                         <option>Genre</option>

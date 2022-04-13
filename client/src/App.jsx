@@ -4,9 +4,12 @@ import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
 import Watch from "./Pages/Watch/Watch";
 import {BrowserRouter as Router, Navigate, Route, Routes} from "react-router-dom";
+import { useContext } from "react";
+import {AuthContext} from "./authContext/AuthContext";
 
 const App = () => {
-  const user = true;
+  const {user} = useContext(AuthContext);
+  
   return (                        // Switch is replaced by Routes
     <Router>
       <Routes>

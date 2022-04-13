@@ -14,11 +14,11 @@ const Home = (props) => {
     useEffect(()=> {
         const getRandomLists = async() => {
             // "proxy": "http://localhost:9000/api"
-            let url = `http://localhost:9000/api/lists${type ? "?type="+type: ""}${genre ? "&genre="+genre: ""}`;
-            let token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDZlYjM0YWRjNWI0ZTI0ZmVmMjc5ZSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0ODkwNTA3MiwiZXhwIjoxNjQ5MzM3MDcyfQ._4X7Pz20oOn882rNDVqXJXRxrWusA3FfmrrDJ31TMf8";
+            // let url = `http://localhost:9000/api/lists${type ? "?type="+type: ""}${genre ? "&genre="+genre: ""}`;
+            let token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDZlYjM0YWRjNWI0ZTI0ZmVmMjc5ZSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTUyODM1MiwiZXhwIjoxNjQ5OTYwMzUyfQ.m8JbYM2uKSckKDa4RQDoge_xrITDaVRE4ZjNNspjbcM";
             try{
                 const res = await axios.get(`http://localhost:9000/api/lists/${type ? "?type="+type: ""}${genre ? "&genre="+genre: ""}`, { headers:{ token: token } })
-                console.log(res.data);
+                //console.log(res.data);
                 setLists(res.data);
                 
             }catch(err){
