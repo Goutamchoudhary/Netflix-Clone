@@ -1,15 +1,20 @@
 import { useContext } from 'react';
 import { useState } from 'react';
 import {login} from "../../authContext/apiCalls";
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../authContext/AuthContext';
 import './Login.scss';
+import FooterCompound from "../../compounds/FooterCompound";
+
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const {dispatch} = useContext(AuthContext);
+    const navigate = useNavigate();
 
     return (
+        <>
         <div className='login'>
             <div className="top">
                 <div className="wrapper">
@@ -26,7 +31,8 @@ const Login = () => {
                     <input type="password" placeholder='Password' onChange={(e) => setPassword(e.target.value)} />
                     <button className='loginButton' onClick={(e) => {e.preventDefault(); login({email, password}, dispatch)}}>Sign In</button>
                     <p>Need help?</p>
-                    <span>New to Netflix? <b>Sign up now.</b></span>
+                    <span>New to Netflix? 
+                        <b onClick={()=> navigate('/register')}>Sign up now.</b></span>
                     <small>
                         This page is protected by Google reCAPTCHA to ensure you're not a
                         bot. <b>Learn more</b>.
@@ -34,6 +40,10 @@ const Login = () => {
                 </form>
             </div>
         </div>
+        
+        <FooterCompound />
+        </>
+
     )
 }
 

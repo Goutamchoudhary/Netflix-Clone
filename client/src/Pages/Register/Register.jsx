@@ -2,6 +2,10 @@ import axios from 'axios';
 import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Register.scss';
+import JumboCompound from "../../compounds/JumboCompound";
+import Seperator from "../../Components/Seperator/Seperator";
+import AccordionCompound from "../../compounds/AccordionCompound";
+import FooterCompound from '../../compounds/FooterCompound';
 
 const Register = () => {
 
@@ -29,6 +33,7 @@ const Register = () => {
     }
 
     return (
+        <>
         <div className='register'>
             <div className="top">
                 <div className="wrapper">
@@ -60,6 +65,14 @@ const Register = () => {
                 
             </div>
         </div>
+        
+        <Seperator />
+        <JumboCompound />
+        <AccordionCompound />
+        <Seperator />
+        <FooterCompound />
+
+        </>
     )
 }
 

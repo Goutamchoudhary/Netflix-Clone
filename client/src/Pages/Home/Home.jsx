@@ -4,7 +4,8 @@ import List from "../../Components/List/List";
 import Navbar from "../../Components/Navbar/Navbar";
 import "./Home.scss";
 import axios from "axios";
-
+import FooterCompound from "../../compounds/FooterCompound";
+import Seperator from "../../Components/Seperator/Seperator";
 
 const Home = (props) => {
     const [lists, setLists] = useState([]);
@@ -38,9 +39,11 @@ const Home = (props) => {
             {/* <List img={img2}/> */}
 
             {lists.map((list, index) => (
-                <List key={index} list={list}/>
+                <List key={list._id} list={list}/>
             ))}
             
+            <Seperator />
+            <FooterCompound />
         </div>
     )
 }
