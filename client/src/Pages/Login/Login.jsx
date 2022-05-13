@@ -32,7 +32,7 @@ const Login = () => {
                     <button className='loginButton' onClick={(e) => {e.preventDefault(); login({email, password}, dispatch)}}>Sign In</button>
                     <p>Need help?</p>
                     <span>New to Netflix? 
-                        <b onClick={()=> navigate('/register')}>Sign up now.</b></span>
+                        <b onClick={()=> navigate('/register')}> Sign up now.</b></span>
                     <small>
                         This page is protected by Google reCAPTCHA to ensure you're not a
                         bot. <b>Learn more</b>.

@@ -21,12 +21,11 @@ const Featured = (props) => {
         getRandomContent();
     }, [type])
 
-    //console.log(content);
     return (
         <div className="featured">
             {props.type && (
                 <div className="category">
-                    <span>{(type === "movie") ? "Movies" : "Series"}</span>
+                    <span>{(type === "movie") ? "Movies" : "TV Shows"}</span>
                     <select name="genre" id="genre" 
                                     onChange={e=>props.setGenre(e.target.value)}>
                         <option>Genre</option>
@@ -47,8 +46,7 @@ const Featured = (props) => {
                 </div>
             )}
 
-            <img src={content.img} 
-            alt="" />
+            <img src={content.img} alt="" />
 
             <div className="info">
                 <img src={content.imgTitle} 
@@ -58,12 +56,12 @@ const Featured = (props) => {
                 </span>
                 <div className="buttons">
                     <button className='play'>
-                        <PlayArrow/>
+                        <PlayArrow style={{ fontSize: 35 }}/>
                         <span>Play</span>
                     </button>
                     <button className='more'>
-                        <InfoOutlined/>
-                        <span>Info</span>
+                        <InfoOutlined style={{ fontSize: 30 }}/>
+                        <span>More Info</span>
                     </button>
                 </div>
             </div>

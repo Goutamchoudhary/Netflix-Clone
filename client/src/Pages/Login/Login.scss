@@ -4,7 +4,9 @@
 .login {
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(to bottom right, rgb(0,0,0,0.6), rgb(0,0,0,0.5)), url("https://img.helpnetsecurity.com/wp-content/uploads/2020/03/23143409/netflix-collection.jpg");
+    background: linear-gradient(to bottom,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%)
+                                    ,url("../../../public/images/misc/home-bg.jpg");
+    // background: linear-gradient(to bottom, rgb(0, 0, 0,0) 10%, rgb(0,0,0,0.3) 100%), url("https://img.helpnetsecurity.com/wp-content/uploads/2020/03/23143409/netflix-collection.jpg");
     background-size: cover;
     position: relative;
 
@@ -25,6 +27,8 @@
     .container {
         width: 100%;
         height: 100%;
+        // background-color: rgba(0, 0, 0, 0.75);
+        border-radius: 5px;
         display: flex;
         top: 0;
         left: 0;
@@ -32,27 +36,34 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        color: white;
+        color: #fff;
         z-index: 1;
+        
 
         form {
             width: 350px;
-            height: 400px;
+            min-height: 500px;
             padding: 30px;
             border-radius: 5px;
             background-color: var(--main-color);
             display: flex;
             flex-direction: column;
             justify-content: space-around;
-            opacity: 0.9;
+            opacity: 0.8;
 
+            h1{
+                margin-bottom: 28px;
+                color: #fff;
+            }
             input {
-                height: 40px;
-                border-radius: 5px;
-                background-color: rgba(169, 169, 169, 0.397);
-                color: white;
-                font-size: 16px;
-                padding-left: 10px;
+                background: #333;
+                border-radius: 4px;
+                border: 0;
+                color: #fff;
+                height: 50px;
+                line-height: 50px;
+                padding: 5px 20px;
+                margin-bottom: 20px;
 
                 &::placeholder {
                     color: lightgray;
@@ -80,13 +91,21 @@
             }
 
             span {
-                color: lightgray;
+                color: #8c8c8c;
 
                 b {
                     color: white;
+                    font-weight: 400;
                     &:hover{
                         cursor: pointer;
                     }
+                }
+            }
+            small{
+                color: #8c8c8c;
+
+                b{
+                    color: rgb(10, 128, 247);
                 }
             }
         }

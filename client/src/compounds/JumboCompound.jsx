@@ -14,7 +14,7 @@ const JumboCompound = () => {
     <JumboWrapper>
       {JumboData.map((item) => (
         <>
-          <JumboItem key={item.id}>
+          <JumboItem key={item.id} direction={item.direction}>
             <JumboTextWrapper>
               <JumboTitle>{item.title}</JumboTitle>
               <JumboSubTitle>{item.subTitle}</JumboSubTitle>
