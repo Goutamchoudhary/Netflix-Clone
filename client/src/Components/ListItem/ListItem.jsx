@@ -52,7 +52,7 @@ const ListItem = (props) => {
                                 <span>{movie.year}</span>
                             </div>
                             <div className="desc">
-                                {movie.desc}
+                                {movie.desc.slice(0, 100)}...
                             </div>
                             <div className="genre">{movie.genre}</div>
                         </div>

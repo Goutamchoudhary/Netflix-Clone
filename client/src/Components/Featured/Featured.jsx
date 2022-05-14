@@ -2,18 +2,21 @@ import { InfoOutlined, PlayArrow } from '@material-ui/icons'
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Featured.scss'
 
 const Featured = (props) => {
     const [content, setContent] = useState({});
     const type = props.type;
+    const navigate = useNavigate();
+
     useEffect(() => {
         const getRandomContent = async () => {
             let token = "UserToken " + JSON.parse(localStorage.getItem("user")).accessToken;
             try{
-                const res = await axios.get(`http://localhost:9000/api/movie/random/${type ? "?type="+type: ""}`, { headers:{ token: token } })
-                //console.log(res.data);
-                setContent(res.data);
+                const res = await axios.get(`http://localhost:9000/api/featured/${type ? "?type="+type: ""}`, { headers:{ token: token } })
+                //console.log(res.data[0]);
+                setContent(res.data[0]);
             }catch(err){
                 console.log(err);
             }
@@ -39,7 +42,7 @@ const Featured = (props) => {
                         <option value="sci-fi">Sci-fi</option>
                         <option value="thriller">Thriller</option>
                         <option value="western">Western</option>
-                        <option value="animation">Animation</option>
+                        <option value="animation">Suspenseful</option>
                         <option value="drama">Drama</option>
                         <option value="documentary">Documentary</option>
                     </select>
@@ -49,13 +52,13 @@ const Featured = (props) => {
             <img src={content.img} alt="" />
 
             <div className="info">
-                <img src={content.imgTitle} 
-                alt="" />
+                {/* <img src={content.imgTitle} 
+                alt="" /> */}
                 <span className='desc'>
                     {content.desc}
                 </span>
                 <div className="buttons">
-                    <button className='play'>
+                    <button className='play' onClick={()=> navigate('/watch')}>
                         <PlayArrow style={{ fontSize: 35 }}/>
                         <span>Play</span>
                     </button>

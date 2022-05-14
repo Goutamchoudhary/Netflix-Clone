@@ -6,6 +6,8 @@ const authRoute = require('./routes/auth');
 const userRoute = require('./routes/users');
 const movieRoute = require('./routes/movies');
 const listRoute = require('./routes/lists');
+const featuredRoute = require('./routes/featured');
+const commonListRoute = require('./routes/commonListRoutes');
 
 dotenv.config();
 
@@ -18,6 +20,9 @@ app.use("/api/auth", authRoute);                 // "/api/auth" endpoint belong 
 app.use("/api/users", userRoute);
 app.use("/api/movie", movieRoute);
 app.use("/api/lists", listRoute);
+app.use("/api/featured", featuredRoute);
+app.use("/api/commonLists", commonListRoute);
+
 
 
 app.listen(9000, () => { 

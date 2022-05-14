@@ -1,11 +1,12 @@
 const router = require('express').Router();
-const List = require('../models/List');
+const commonList = require('../models/commonList');
 const verify = require('../verifyToken');
+
 
 // CREATE
 router.post('/', verify, async(req, res) => {
     if(req.user.isAdmin){
-        const newList = new List(req.body);
+        const newList = new commonList(req.body);
 
         try{
             const savedList = await newList.save();
@@ -25,7 +26,7 @@ router.post('/', verify, async(req, res) => {
 router.delete('/', verify, async(req, res) => {
     if(req.user.isAdmin){
         try{
-            await List.findByIdAndDelete(req.params.dictionary);
+            await commonList.findByIdAndDelete(req.params.dictionary);
             return res.status(200).json("The list has been deleted...");
         }catch(err){
             return res.status(500).json(err);
@@ -40,14 +41,10 @@ router.delete('/', verify, async(req, res) => {
 // GET
 
 router.get('/', verify, async(req, res) => {
-    const typeQuery = req.query.type;
-    const genreQuery = req.query.genre;
     let list = [];
 
     try{
-        list = await List.aggregate([
-                    { $match: {type: typeQuery } }
-                ]);
+        list = await commonList.find();
 
         return res.status(200).json(list);
 

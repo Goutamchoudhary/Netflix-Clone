@@ -7,42 +7,47 @@ import axios from "axios";
 import FooterCompound from "../../compounds/FooterCompound";
 import Seperator from "../../Components/Seperator/Seperator";
 
-const Home = (props) => {
+const Home = ({type}) => {
     const [lists, setLists] = useState([]);
     const [genre, setGenre] = useState(null);
-    const type = props.type;
+    // const type = props.type;
 
     useEffect(()=> {
         const getRandomLists = async() => {
             // "proxy": "http://localhost:9000/api"
             // let url = `http://localhost:9000/api/lists${type ? "?type="+type: ""}${genre ? "&genre="+genre: ""}`;
-            let token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDZlYjM0YWRjNWI0ZTI0ZmVmMjc5ZSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTUyODM1MiwiZXhwIjoxNjQ5OTYwMzUyfQ.m8JbYM2uKSckKDa4RQDoge_xrITDaVRE4ZjNNspjbcM";
+            let token = "UserToken " + JSON.parse(localStorage.getItem("user")).accessToken;
+            
             try{
-                const res = await axios.get(`http://localhost:9000/api/lists/${type ? "?type="+type: ""}${genre ? "&genre="+genre: ""}`, { headers:{ token: token } })
-                //console.log(res.data);
-                setLists(res.data);
+                const listRes = await axios.get(`http://localhost:9000/api/lists/${type ? "?type="+type: ""}${genre ? "&genre="+genre: ""}`, { headers:{ token: token } })
+                console.log(listRes.data);
+                if((listRes.data).length !== 0){
+                    setLists(listRes.data);
+                }
+
+                const commonListRes = await axios.get(`http://localhost:9000/api/commonLists/`, { headers:{ token: token } });
+                console.log(commonListRes);
+                setLists(...lists, commonListRes.data);
                 
             }catch(err){
                 console.log(err);
             }
         };
         getRandomLists();
-    },[type, genre]);
+    },[type]);
 
-    let img1 = "https://i.pinimg.com/564x/41/88/29/41882960bc135a47363f9f3f890f706d.jpg";
-    let img2 = "https://i.pinimg.com/originals/93/d3/30/93d330382e963458edb433ed100910d8.jpg";
+    // let img1 = "https://i.pinimg.com/564x/41/88/29/41882960bc135a47363f9f3f890f706d.jpg";
+    // let img2 = "https://i.pinimg.com/originals/93/d3/30/93d330382e963458edb433ed100910d8.jpg";
 
     return (
         <div className="home">
             <Navbar/>
             <Featured type={type} setGenre={setGenre}/>
-            {/* <List img={img2}/> */}
 
-            {lists.map((list, index) => (
+            {lists.map((list) => (
                 <List key={list._id} list={list}/>
             ))}
             
-            <Seperator />
             <FooterCompound />
         </div>
     )

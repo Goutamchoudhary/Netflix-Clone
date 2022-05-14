@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const Movie = require('../models/Movie');
 const verify = require('../verifyToken');
+const Featured = require('../models/Featured');
 
-// CREATE
+// CREATE MOVIE
 router.post('/', verify, async(req, res) => {
     if(req.user.isAdmin){
         const newMovie = new Movie(req.body);
@@ -20,7 +21,7 @@ router.post('/', verify, async(req, res) => {
 });
 
 
-// UPDATE
+// UPDATE MOVIE
 
 router.put('/:id', verify, async(req, res) => {
     if(req.user.isAdmin){
@@ -38,7 +39,7 @@ router.put('/:id', verify, async(req, res) => {
 });
 
 
-// DELETE
+// DELETE MOVIE
 
 router.delete('/:id', verify, async(req, res) => {
     if(req.user.isAdmin){
@@ -55,7 +56,7 @@ router.delete('/:id', verify, async(req, res) => {
 });
 
 
-// GET
+// GET A MOVIE
 
 router.get('/find/:id', verify, async(req, res) => {
     try{
@@ -64,41 +65,6 @@ router.get('/find/:id', verify, async(req, res) => {
     }catch(err){
         res.status(500).json(err);
     }
-});
-
-
-// GET RANDOM MOVIE
-
-router.get('/random', verify, async(req, res) => {
-    const type = req.query.type;
-    let movie;
-    try{
-        if(type){
-            if(type === "series"){
-                movie = await Movie.aggregate([           // this will give us a random series
-                    {$match: {isSeries: true}},           // from all series collection
-                    {$sample: {size: 1} },
-                ]);
-            }
-            else{
-                movie = await Movie.aggregate([           // this will give us a random movie
-                    {$match: {isSeries: false}},          // from all movies collection
-                    {$sample: {size: 1} },
-                ]);
-            }
-        }
-        else{
-            movie = await Movie.aggregate([
-                {$sample: {size: 1} },
-            ]);
-        }
-        //console.log(movie);
-        return res.status(200).json(movie);
-
-    }catch(err){
-        res.status(500).json(err);
-    }
-    
 });
 
 
