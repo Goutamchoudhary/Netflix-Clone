@@ -24,7 +24,8 @@ app.use("/api/featured", featuredRoute);
 app.use("/api/commonLists", commonListRoute);
 
 
+const PORT = process.env.PORT || 9000;
 
-app.listen(9000, () => { 
+app.listen(PORT, () => { 
     console.log("Backend server is running");
 })

@@ -35,7 +35,7 @@ const List = (props) => {
                     {/* <ListItem index={0} img={props.img}/> */}
 
                     {props.list.content.map((item, index) => (
-                        <ListItem key={item} index={index} item={item} />
+                        <ListItem key={index} index={index} item={item} />
                     ))}
 
                 </div>

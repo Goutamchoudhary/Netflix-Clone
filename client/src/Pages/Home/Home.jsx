@@ -9,43 +9,50 @@ import Seperator from "../../Components/Seperator/Seperator";
 
 const Home = ({type}) => {
     const [lists, setLists] = useState([]);
+    const [commonlists, setCommonLists] = useState([]);
     const [genre, setGenre] = useState(null);
-    // const type = props.type;
 
     useEffect(()=> {
+        // let isMounted = true;
         const getRandomLists = async() => {
             // "proxy": "http://localhost:9000/api"
             // let url = `http://localhost:9000/api/lists${type ? "?type="+type: ""}${genre ? "&genre="+genre: ""}`;
+            
             let token = "UserToken " + JSON.parse(localStorage.getItem("user")).accessToken;
             
             try{
-                const listRes = await axios.get(`http://localhost:9000/api/lists/${type ? "?type="+type: ""}${genre ? "&genre="+genre: ""}`, { headers:{ token: token } })
+                const listRes = await axios.get(`/lists/${type ? "?type="+type: ""}${genre ? "&genre="+genre: ""}`, { headers:{ token: token } })
                 console.log(listRes.data);
-                if((listRes.data).length !== 0){
-                    setLists(listRes.data);
-                }
+                setLists(listRes.data);
 
-                const commonListRes = await axios.get(`http://localhost:9000/api/commonLists/`, { headers:{ token: token } });
-                console.log(commonListRes);
-                setLists(...lists, commonListRes.data);
+                const commonListRes = await axios.get(`/commonLists/`, { headers:{ token: token } });
+                console.log(commonListRes.data);
+                setCommonLists(commonListRes.data);
+                //console.log(lists);                
                 
             }catch(err){
                 console.log(err);
             }
+
         };
         getRandomLists();
+
     },[type]);
 
     // let img1 = "https://i.pinimg.com/564x/41/88/29/41882960bc135a47363f9f3f890f706d.jpg";
     // let img2 = "https://i.pinimg.com/originals/93/d3/30/93d330382e963458edb433ed100910d8.jpg";
 
     return (
-        <div className="home">
+        <div className="home" >
             <Navbar/>
             <Featured type={type} setGenre={setGenre}/>
 
-            {lists.map((list) => (
+            {lists && lists.map((list) => (
                 <List key={list._id} list={list}/>
+            ))}
+
+            {commonlists && commonlists.map((list, index) => (
+                <List key={index} list={list}/>
             ))}
             
             <FooterCompound />

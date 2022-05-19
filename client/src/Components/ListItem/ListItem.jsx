@@ -16,7 +16,7 @@ const ListItem = (props) => {
             let token = "UserToken " + JSON.parse(localStorage.getItem("user")).accessToken;
             
             try{
-                const res = await axios.get(`http://localhost:9000/api/movie/find/${item}`, { headers:{ token: token } });
+                const res = await axios.get(`/movie/find/${item}`, { headers:{ token: token } });
                 //console.log(res.data);
                 setMovie(res.data);
             }catch(err){
@@ -52,7 +52,7 @@ const ListItem = (props) => {
                                 <span>{movie.year}</span>
                             </div>
                             <div className="desc">
-                                {movie.desc.slice(0, 100)}...
+                                {movie.desc}...
                             </div>
                             <div className="genre">{movie.genre}</div>
                         </div>

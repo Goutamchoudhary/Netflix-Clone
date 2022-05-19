@@ -14,7 +14,7 @@ const Featured = (props) => {
         const getRandomContent = async () => {
             let token = "UserToken " + JSON.parse(localStorage.getItem("user")).accessToken;
             try{
-                const res = await axios.get(`http://localhost:9000/api/featured/${type ? "?type="+type: ""}`, { headers:{ token: token } })
+                const res = await axios.get(`/featured/${type ? "?type="+type: ""}`, { headers:{ token: token } })
                 //console.log(res.data[0]);
                 setContent(res.data[0]);
             }catch(err){

@@ -41,7 +41,7 @@ router.delete('/', verify, async(req, res) => {
 
 router.get('/', verify, async(req, res) => {
     const typeQuery = req.query.type;
-    const genreQuery = req.query.genre;
+    //const genreQuery = req.query.genre;
     let list = [];
 
     try{

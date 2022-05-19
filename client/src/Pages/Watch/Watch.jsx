@@ -22,7 +22,7 @@ const Watch = () => {
                 autoPlay={true}
                 progress
                 controls
-                src="/videos/video.mp4"
+                src="https://res.cloudinary.com/du7od2uuc/video/upload/v1652527265/Netflix-Clone/video_e789ok.mp4"
             />
         </div>
     )
