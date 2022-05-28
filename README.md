@@ -29,7 +29,7 @@
 * Add user profile data, profile picture and personal data setup.
 * Add watchlist feature where user can add their favourite or to be watched movies/tvshows to their watchlist. 
   The list will be user specific and can be implemented with the help of cookies.
-* More data to be created so that user can browse based on genre of its choice
+* More data to be created so that user can browse based on genre of its choice.
 * Implement more features as a personal practice project.
 
 
