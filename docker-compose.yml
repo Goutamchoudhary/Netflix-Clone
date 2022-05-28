@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  api-server:
+    container_name: server_cont
+    restart: unless-stopped
+    image: api-server:1.0
+    build: 
+      context: api
+      target: production
+      dockerfile: Dockerfile
+    ports:
+      - 9000:9000
+    networks:
+      - shared-network
+  
+  react-app:
+    container_name: client_cont
+    restart: unless-stopped
+    image: react-app:1.0
+    build: 
+      context: client
+      target: production
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    networks:
+      - shared-network
+    depends_on:
+      - api
