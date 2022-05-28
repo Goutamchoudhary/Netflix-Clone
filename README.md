@@ -6,8 +6,10 @@
   A full stack MERN application built using ReactJS, React Hooks, React Router, Material UI, Saas Styling, ExpressJS, NodeJS, and MongoDB.
   REST API is used to perform the CRUD operations for user, movies/tvshows, featured list, and collection list with MongoDB Cluster.
   Axios library is used to fetch or create data to MongoDB server via HTTP requests.
-  ExpressJS is used which is a back end web application framework for NodeJS. 
-  
+  ExpressJS is used which is a back end web application framework for NodeJS.
+
+**Note:** This application is containerized using docker containers. This container can be used to deploy the application on Microsoft Azure, AWS or GCP. 
+
 ## Features Implemented
 
 * Original Netflix UI replicated using ReactJS, React Hooks, Material UI, and advanced sass styling.
