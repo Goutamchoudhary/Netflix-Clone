@@ -2,6 +2,7 @@
 
 
 ## Background
+***
 
   A full stack MERN application built using ReactJS, React Hooks, React Router, Material UI, Saas Styling, ExpressJS, NodeJS, and MongoDB.
   REST API is used to perform the CRUD operations for user, movies/tvshows, featured list, and collection list with MongoDB Cluster.
@@ -11,6 +12,7 @@
 **Note:** This application is containerized using docker containers. This container can be used to deploy the application on Microsoft Azure, AWS or GCP. 
 
 ## Features Implemented
+***
 
 * Original Netflix UI replicated using ReactJS, React Hooks, Material UI, and advanced sass styling.
 * A register page and sign in page is created where a user can safely sign up and sign in with the valid email id.
@@ -27,6 +29,7 @@
 
 
 ## New features to be added
+***
 
 * Add user profile data, profile picture and personal data setup.
 * Add watchlist feature where user can add their favourite or to be watched movies/tvshows to their watchlist. 
@@ -36,10 +39,20 @@
 
 
 ## Demo
+***
 
-### Live Deployed Website : [Link](https://netflix-clone-gautam.herokuapp.com/)
+### Live Deployed Website : [https://netflix-clone-gautam.herokuapp.com/](https://netflix-clone-gautam.herokuapp.com/)
+---
+
+### Demo Video
+---
+
+https://user-images.githubusercontent.com/68272020/170863606-7060b016-6ce8-4ee7-a077-44ae76741fb6.mp4
+
 
 ### Images
+---
+
 
 **Register Page**
 
