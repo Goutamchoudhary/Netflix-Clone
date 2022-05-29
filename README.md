@@ -43,7 +43,7 @@
 ## Demo
 ***
 
-### Live Deployed Website : [https://netflix-clone-gautam.herokuapp.com/](https://netflix-clone-gautam.herokuapp.com/)
+### Live Deployed Website : [Link](https://netflix-clone-gautam.herokuapp.com/)
 ---
 
 ### Demo Video
