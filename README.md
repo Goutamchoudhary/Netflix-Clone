@@ -5,9 +5,10 @@
 ***
 
   A full stack MERN application built using ReactJS, React Hooks, React Router, Material UI, Saas Styling, ExpressJS, NodeJS, and MongoDB.
-  REST API is used to perform the CRUD operations for user, movies/tvshows, featured list, and collection list with MongoDB Cluster.
-  Axios library is used to fetch or create data to MongoDB server via HTTP requests.
-  ExpressJS is used which is a back end web application framework for NodeJS.
+  REST API is used to perform the CRUD operations for user, movies/tvshows, featured list, and collection list with MongoDB Cluster. If the user is 
+  logged in as admin, all the data related to movie/tvshow lists and featured list is being created using REST APIs via HTTP POST method. Since there 
+  is no admin dashboard created so all those HTTP requests are made through POSTMAN. Axios library is used to fetch or create data to MongoDB server 
+  via HTTP requests. ExpressJS is used which is a back-end web application framework for NodeJS.
 
 **Note:** This application is containerized using docker containers. This container can be used to deploy the application on Microsoft Azure, AWS or GCP. 
 
@@ -17,6 +18,7 @@
 * Original Netflix UI replicated using ReactJS, React Hooks, Material UI, and advanced sass styling.
 * A register page and sign in page is created where a user can safely sign up and sign in with the valid email id.
 * While login, a token is generated which is used to authenticate the user. This is implemented using jsonwebtoken. 
+* All users are not allowed to make create, update and delete requests to the MongoDB server except if the user logged in as admin.
 * The passwords are encrypted using CryptoJS library.
 * A random tvshow or movie will be displayed in the featured part of the application.
 * Collections of popular movies and tvshows are created in the database manually.
