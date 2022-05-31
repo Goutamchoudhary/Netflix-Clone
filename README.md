@@ -19,15 +19,19 @@
 * A register page and sign in page is created where a user can safely sign up and sign in with the valid email id.
 * While login, a token is generated which is used to authenticate the user. This is implemented using jsonwebtoken. 
 * All users are not allowed to make create, update and delete requests to the MongoDB server except if the user logged in as admin.
+* There is no Admin Dashboard created. 
 * The passwords are encrypted using CryptoJS library.
 * A random tvshow or movie will be displayed in the featured part of the application.
-* Collections of popular movies and tvshows are created in the database manually.
+* Collections of popular movies and tvshows are created in the database using POSTMAN by making HTTP POST request to the MongoDB server.
 * Cloudinary was used where the images and videos were uploaded and these images are accessed through url when the movie collection is created.
 * User can click on Home, Movie and TVShows button in the navbar to get the desired list of collections via HTTP GET method.
+* There is a Genre drop down button at the top left corner on the featured component clicking which the movie/tvshows will be filtered according to the
+  selected genre.
 * User can slide through the list of movies/tvshow in a particular collection.
-* Hovering over the poster will show the details of movie/tvshow i.e., description, duration, year, age group.
+* Hovering over the poster will show the details of movie/tvshow i.e., description, duration, year, age group, genre. 
+  And, Buttons like Add to watchlist, Like and Dislike.
 * When hovered, the movie also starts playing and if clicked it will redirects to the watch page where user can watch it.
-* User can also click on the logout button in the top right corner, then the page will be redirected to the register page.
+* Also, there is a Logout Button at the top right corner clicking which the user will be logged out, and the page will be redirected to the register page.
 * Context API hook of ReactJS is used for state management of the user.
 
 
